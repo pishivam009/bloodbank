@@ -1,0 +1,40 @@
+<form #bgForm="ngForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Select Blood Broup</mat-label>
+        <mat-select name="bloodGroup" ngModel>
+            <mat-option *ngFor="let bg of bgs" [value]="bg" (click)="setBloodGroup(bg)">
+                {{bg}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button class=" btn btn-primary " (click)="viewSampleByBloodGroup(bgForm.value) ">Click to View</button>
+    <ng-container *ngIf="active ">Last updated: {{refreshedOn|date:"dd-MM-YYYY HH:mm:ss "}}</ng-container>
+</form>
+<table class="table table-striped" *ngIf="active">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Blood Group</th>
+            <th scope="col">Donated On</th>
+            <th scope="col">Donor Name</th>
+            <th scope="col">Donor Contact</th>
+            <th scope="col">Donor Email</th>
+            <th scope="col">Donor Address</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sample of samplelist; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>SAMPLE{{ sample.id }}</td>
+            <td>{{ sample.bloodGroup }}</td>
+            <td>{{ sample.date}}</td>
+            <td>{{ sample.donorName }}</td>
+            <td>{{ sample.donorContact }}</td>
+            <td>{{ sample.donorAddress }}</td>
+            <td>{{ sample.donorEmail }}</td>
+
+        </tr>
+    </tbody>
+</table>

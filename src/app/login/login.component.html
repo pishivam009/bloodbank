@@ -1,0 +1,25 @@
+<div class="col-md-4">
+    <div class="login-panel panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Sign In</h3>
+        </div>
+        {{message}}
+        <div class="panel-body">
+            <form role="form" #loginForm="ngForm">
+                <fieldset>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="E-mail" name="emailid" type="email" ngModel required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Password" name="password" type="password" ngModel required>
+                    </div>
+
+
+                    <button class="btn btn-sm btn-success" (click)="doLogin(loginForm.value)" [disabled]="!loginForm.valid">Login</button>&nbsp;
+                    <button type="reset" class="btn btn-sm btn-success">Reset</button>
+                    <!--{{data | json }}-->
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

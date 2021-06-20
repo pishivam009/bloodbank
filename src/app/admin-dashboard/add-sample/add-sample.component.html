@@ -1,0 +1,33 @@
+<div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Add Blood Sample</h4>
+        {{message}}
+        <form #addSampleForm="ngForm">
+            <div class="form-group input-group">
+                <input name="bloodGroup" class="form-control" placeholder="Blood Group" type="text" ngModel required><br>
+            </div>
+            <div class="form-group input-group">
+                <input name="date" class="form-control" placeholder="Date " type="date" ngModel required><br>
+            </div>
+            <div class="form-group input-group">
+                <input name="donorName" class="form-control" placeholder="Donor Name" type="text" ngModel required><br>
+            </div>
+            <div class="form-group input-group">
+                <input name="donorEmail" class="form-control" placeholder="Donor Email" type="text" ngModel required><br>
+            </div>
+            <div class="form-group input-group">
+                <input name="donorContact" class="form-control" placeholder="Donor Contact" type="text" ngModel required><br>
+            </div>
+            <div class="form-group input-group">
+                <input name="donorAddress" class="form-control" placeholder="Donor Address" type="text" ngModel required><br>
+            </div>
+            <div align="center" *ngIf="!addSampleForm.valid">Fill all fields to get Submit Button</div>
+            <div class="form-group" *ngIf="addSampleForm.valid">
+                <button type="submit" class="btn btn-primary btn-block" (click)="doAddSample(addSampleForm.value)"> Add Sample  </button><br>
+                <button type="reset" class="btn btn-primary btn-block">Reset</button>
+            </div>
+            <!--<p class="text-center">Have an account? <a routerLink='../login'>Log In</a> </p> -->
+        </form>
+    </article>
+</div>
+<!-- card.// -->

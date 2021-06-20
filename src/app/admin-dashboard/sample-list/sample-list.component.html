@@ -1,0 +1,30 @@
+<button class="btn btn-primary" (click)="viewSampleList()">Refresh List</button>
+<ng-container *ngIf="active">Last updated: {{refreshedOn|date:"dd-MM-YYYY HH:mm:ss"}}</ng-container>
+<table class="table table-striped" *ngIf="active">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Blood Group</th>
+            <th scope="col">Donated On</th>
+            <th scope="col">Donor Name</th>
+            <th scope="col">Donor Contact</th>
+            <th scope="col">Donor Email</th>
+            <th scope="col">Donor Address</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sample of samplelist; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>SAMPLE{{ sample.id }}</td>
+            <td>{{ sample.bloodGroup }}</td>
+            <td>{{ sample.date}}</td>
+            <td>{{ sample.donorName }}</td>
+            <td>{{ sample.donorContact }}</td>
+            <td>{{ sample.donorAddress }}</td>
+            <td>{{ sample.donorEmail }}</td>
+            <td><button class="btn btn-danger" (click)="doDeleteSample(sample.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>

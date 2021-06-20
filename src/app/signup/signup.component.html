@@ -1,0 +1,30 @@
+<div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Create Account</h4>
+        {{message}}
+        <form #signupForm="ngForm">
+            <div class="form-group input-group">
+                <input name="name" class="form-control" placeholder="Full name" type="text" ngModel required><br>
+            </div>
+            <div class="form-group input-group">
+                <input name="email" class="form-control" placeholder="Email Address" type="email" ngModel required><br>
+            </div>
+            <div class="form-group input-group">
+                <input name="contact" class="form-control" placeholder="Contact Number" type="text" ngModel required><br>
+            </div>
+            <div class="form-group input-group">
+                <input name="address" class="form-control" placeholder="Address" type="address" ngModel required required><br>
+            </div>
+            <div class="form-group input-group">
+                <input name="password" class="form-control" placeholder="Enter Password" type="password" ngModel required><br>
+            </div>
+            <div align="center" *ngIf="!signupForm.valid">Fill all fields to get Submit Button</div>
+            <div class="form-group" *ngIf="signupForm.valid">
+                <button type="submit" class="btn btn-primary btn-block" (click)="doSignup(signupForm.value)" [disabled]="!signupForm.valid"> Create Account  </button>
+                <button type="reset" class="btn btn-primary btn-block">Reset</button>
+            </div>
+            <!--<p class="text-center">Have an account? <a routerLink='../login'>Log In</a> </p> -->
+        </form>
+    </article>
+</div>
+<!-- card.// -->

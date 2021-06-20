@@ -1,0 +1,21 @@
+<mat-tab-group>
+    <mat-tab label="Welcome"> Hello {{loggedInUser}} Welcome to Admin Dashboard</mat-tab>
+    <mat-tab label="Add Blood Sample">
+        <app-add-sample></app-add-sample>
+    </mat-tab>
+    <mat-tab label="Blood Availability">
+        <app-sample-list></app-sample-list>
+    </mat-tab>
+    <mat-tab label="User List">
+        <button class="btn btn-primary" routerLink="users">
+            Click to get user list  
+        </button> &nbsp;
+        <button class="btn btn-primary" routerLink="signup">
+            Add a new user
+        </button>
+        <router-outlet></router-outlet>
+    </mat-tab>
+    <mat-tab label="Update Profile">
+        <app-update-profile></app-update-profile>
+    </mat-tab>
+</mat-tab-group>

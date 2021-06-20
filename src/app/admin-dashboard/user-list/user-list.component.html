@@ -1,0 +1,33 @@
+&nbsp;&nbsp;<button class="btn btn-primary" *ngIf="active" (click)="getUserList()">Refresh</button> &nbsp;
+<ng-container *ngIf="active">Last updated: {{refreshedOn|date:"dd-MM-YYYY HH:mm:ss"}}</ng-container>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Admin</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of list; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>USER-{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.contact }}</td>
+            <td>
+                <button class="btn btn-success" *ngIf="user.isAdmin==0" (click)="doMakeAdmin(user.id)">Give Admin Rights</button>
+                <button class="btn btn-warning" *ngIf="user.isAdmin!=0" (click)="doRevokeAdmin(user.id)">Revoke Admin Rights</button>
+            </td>
+            <td><button class="btn btn-primary">Update</button></td>
+            <td><button class="btn btn-danger" (click)="doDelete(user.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
