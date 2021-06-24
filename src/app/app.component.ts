@@ -11,6 +11,8 @@ export class AppComponent {
   title = 'bloodbank';
 
   constructor(private http: HttpClient, private router: Router) { }
+
+  rtr=this.router;
   dashboard(){
     if(sessionStorage.getItem('isLoggedIn')=='true'){
         if(sessionStorage.getItem('isAdmin')=='1'){

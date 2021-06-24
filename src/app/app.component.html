@@ -13,9 +13,9 @@
         </ul>
 
         <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2" routerLink='login' *ngIf="!isLoggedIn">Login</button> &nbsp;
-            <button type="button" class="btn btn-primary" routerLink='signup' *ngIf="!isLoggedIn">Signup</button>
-            <button type="button" class="btn btn-primary" (click)="doLogout()">Log Out</button>
+            <button type="button" class="btn btn-outline-primary me-2" routerLink='login' *ngIf='rtr.url=="/"'>Login</button> &nbsp;
+            <button type="button" class="btn btn-primary" routerLink='signup' *ngIf='rtr.url=="/"'>Signup</button>
+            <button type="button" class="btn btn-primary" (click)="doLogout()" *ngIf='rtr.url=="/admin" || rtr.url=="/user"'>Log Out</button>
         </div>
     </header>
 </div>
