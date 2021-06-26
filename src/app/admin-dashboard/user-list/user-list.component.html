@@ -10,7 +10,7 @@
             <th scope="col">Address</th>
             <th scope="col">Contact</th>
             <th scope="col">Admin</th>
-            <th scope="col">Update</th>
+            <!--<th scope="col">Update</th>-->
             <th scope="col">Delete</th>
         </tr>
     </thead>
@@ -26,7 +26,7 @@
                 <button class="btn btn-success" *ngIf="user.isAdmin==0" (click)="doMakeAdmin(user.id)">Give Admin Rights</button>
                 <button class="btn btn-warning" *ngIf="user.isAdmin!=0" (click)="doRevokeAdmin(user.id)">Revoke Admin Rights</button>
             </td>
-            <td><button class="btn btn-primary">Update</button></td>
+            <!--<td><button class="btn btn-primary">Update</button></td>-->
             <td><button class="btn btn-danger" (click)="doDelete(user.id)">Delete</button></td>
         </tr>
     </tbody>
